@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using DatinApp.API.Data;
 using DatinApp.API.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Dataing.API.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ValuesController : ControllerBase
@@ -27,8 +29,9 @@ namespace Dataing.API.Controllers
             var values = await _context.ValuesSet.ToListAsync();
             return Ok(values);
         }
-
+        
         // GET api/values/5
+        [AllowAnonymous]
         [HttpGet("{id}")]
         public async Task<ActionResult<string>> GetValue(int id)
         {
