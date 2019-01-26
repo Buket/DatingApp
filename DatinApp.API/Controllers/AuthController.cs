@@ -13,7 +13,7 @@ using Microsoft.IdentityModel.Tokens;
 namespace DatinApp.API.Controllers
 {
     [Route("api/[controller]")]
-    //[ApiController]
+    [ApiController]
     public class AuthController : ControllerBase
     {
         private readonly IAuthRepository _repo;
