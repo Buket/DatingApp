@@ -10,5 +10,7 @@ namespace DatinApp.API.Data
         public DbSet<Value> ValuesSet { get; set; }
 
         public DbSet<User> UsersSet { get; set; }
+
+        public DbSet<Photo> Photos { get; set; }
     }
 }
