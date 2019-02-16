@@ -12,5 +12,7 @@ namespace DatinApp.API.Data
          Task<IEnumerable<User>> GetUsers();
 
          Task<User> GetUser(int id);
+
+         Task<Photo> GetPhotoAsync(int id);
     }
 }
