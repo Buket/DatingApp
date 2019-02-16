@@ -38,7 +38,7 @@ namespace DatinApp.API.Controllers
                 return BadRequest("username alredy exists");
             var userToCreate = new User
             {
-                Username = userForRegisterDto.Username
+                Username = userForRegisterDto.Username  
             };
 
             var createdUser = await _repo.Register(userToCreate, userForRegisterDto.Password);
