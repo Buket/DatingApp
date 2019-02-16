@@ -42,7 +42,7 @@ namespace DatinApp.API.Controllers
         [HttpGet("{id}", Name = "GetPhoto")]
         public async Task<IActionResult> GetPhoto(int id)
         {
-            var photoFromRepo = _repository.GetPhotoAsync(id);
+            var photoFromRepo = await _repository.GetPhotoAsync(id);
 
             var photo = _mapper.Map<PhotoForReturnDto>(photoFromRepo);
             return Ok(photo);
