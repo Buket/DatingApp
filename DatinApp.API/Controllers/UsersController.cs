@@ -5,11 +5,13 @@ using System.Threading.Tasks;
 using AutoMapper;
 using DatinApp.API.Data;
 using DatinApp.API.Dtos;
+using DatinApp.API.Helpers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DatinApp.API.Controllers
 {
+    [ServiceFilter(typeof(LogUserActivity))]
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
@@ -30,7 +32,7 @@ namespace DatinApp.API.Controllers
 
             var usersToReturn = _mapper.Map<IEnumerable<UserForListDto>>(users);
 
-            return Ok(usersToReturn);
+            return Ok(usersToReturn);            
         }
 
         [HttpGet("{id}", Name = "GetUser")]
