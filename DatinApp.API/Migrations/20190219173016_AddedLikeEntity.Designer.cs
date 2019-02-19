@@ -3,14 +3,16 @@ using System;
 using DatinApp.API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Dataing.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20190219173016_AddedLikeEntity")]
+    partial class AddedLikeEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -27,36 +29,6 @@ namespace Dataing.API.Migrations
                     b.HasIndex("LikeeId");
 
                     b.ToTable("Likes");
-                });
-
-            modelBuilder.Entity("DatinApp.API.Models.Message", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Content");
-
-                    b.Property<DateTime?>("DateRead");
-
-                    b.Property<bool>("IsRead");
-
-                    b.Property<DateTime>("MessageSent");
-
-                    b.Property<bool>("RecipientDeleted");
-
-                    b.Property<int>("RecipientId");
-
-                    b.Property<bool>("SenderDeleted");
-
-                    b.Property<int>("SenderId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("RecipientId");
-
-                    b.HasIndex("SenderId");
-
-                    b.ToTable("Messages");
                 });
 
             modelBuilder.Entity("DatinApp.API.Models.Photo", b =>
@@ -141,19 +113,6 @@ namespace Dataing.API.Migrations
                     b.HasOne("DatinApp.API.Models.User", "Liker")
                         .WithMany("Likees")
                         .HasForeignKey("LikerId")
-                        .OnDelete(DeleteBehavior.Restrict);
-                });
-
-            modelBuilder.Entity("DatinApp.API.Models.Message", b =>
-                {
-                    b.HasOne("DatinApp.API.Models.User", "Recipient")
-                        .WithMany("MessagesReceived")
-                        .HasForeignKey("RecipientId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("DatinApp.API.Models.User", "Sender")
-                        .WithMany("MessagesSent")
-                        .HasForeignKey("SenderId")
                         .OnDelete(DeleteBehavior.Restrict);
                 });
 
