@@ -2,6 +2,8 @@
 bin
 obj
 
+wwwroot
+
 Backups
 Cache
 CachedData
