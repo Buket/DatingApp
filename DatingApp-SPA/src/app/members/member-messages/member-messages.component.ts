@@ -4,6 +4,7 @@ import { UserService } from 'src/app/_services/user.service';
 import { AlertifyService } from 'src/app/_services/alertify.service';
 import { AuthService } from 'src/app/_services/auth.service';
 import { User } from 'src/app/_models/user';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-member-messages',
@@ -11,7 +12,7 @@ import { User } from 'src/app/_models/user';
   styleUrls: ['./member-messages.component.css']
 })
 export class MemberMessagesComponent implements OnInit {
-  @Input() recipient: User;
+  @Input() recipientId: number;
   messages: Message[];
   newMessage: any = {};
 
@@ -24,7 +25,17 @@ export class MemberMessagesComponent implements OnInit {
   }
 
   loadMessages() {
-    this.userService.getMessageThread(this.authService.decodedToken.nameid, this.recipient.id)
+    const currentUserId = +this.authService.decodedToken.nameid;
+    this.userService.getMessageThread(this.authService.decodedToken.nameid, this.recipientId)
+      .pipe(
+        tap(messages => {
+          for(let i = 0; i < messages.length; i++) {
+            if (messages[i].isRead === false && messages[i].recipientId === currentUserId) {
+              this.userService.markAsRead(currentUserId, messages[i].id);
+            }
+          }
+        })
+      )
       .subscribe(messages => {
         this.messages = messages;
       }, error => {
@@ -33,15 +44,9 @@ export class MemberMessagesComponent implements OnInit {
   }
 
   sendMessage() {
-    this.newMessage.recipientId = this.recipient.id;
+    this.newMessage.recipientId = this.recipientId;
     this.userService.sendMessage(this.authService.decodedToken.nameid, this.newMessage)
       .subscribe((message: Message) => {
-        const loggedinUser: User = JSON.parse(localStorage.getItem('user'));
-        message.senderPhotoUrl = loggedinUser.photoUrl;
-        message.senderKnownAs = loggedinUser.knownAs;
-        message.recipientKnownAs = this.recipient.knownAs;
-        message.recipientPhotoUrl = this.recipient.photoUrl;
-
         this.messages.unshift(message);
         this.newMessage.content = '';
       }, error => {
