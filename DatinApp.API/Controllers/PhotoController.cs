@@ -14,7 +14,7 @@ using Microsoft.Extensions.Options;
 
 namespace DatinApp.API.Controllers
 {
-    [Authorize]
+    
     [Route("api/users/{userId}/photos")]
     [ApiController]
     public class PhotoController : ControllerBase

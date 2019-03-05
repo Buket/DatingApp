@@ -45,14 +45,14 @@ namespace DatinApp.API.Data
 
         public async Task<User> GetUser(int id)
         {
-            var user = await _context.UsersSet.Include(p => p.Photos)
+            var user = await _context.Users.Include(p => p.Photos)
                                .FirstOrDefaultAsync(u => u.Id == id);
             return user;
         }
 
         public async Task<PagedList<User>> GetUsers(UserParams userParams)
         {
-            var users =  _context.UsersSet.Include(p => p.Photos)
+            var users =  _context.Users.Include(p => p.Photos)
                 .OrderByDescending(u => u.LastActive).AsQueryable();
 
             users = users.Where(u => u.Id != userParams.UserId);
@@ -95,7 +95,7 @@ namespace DatinApp.API.Data
 
         private async Task<IEnumerable<int>> GetUserLikes(int id, bool likers)
         {
-            var user = await _context.UsersSet
+            var user = await _context.Users
                 .Include(x => x.Likers).Include(x => x.Likees)
                 .FirstOrDefaultAsync(u => u.Id == id);
             if(likers)

@@ -10,7 +10,6 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Dataing.API.Controllers
 {
-    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ValuesController : ControllerBase
@@ -23,7 +22,7 @@ namespace Dataing.API.Controllers
         }
 
         // GET api/values
-        [AllowAnonymous]
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public async Task<IActionResult> GetValues()
         {
@@ -32,7 +31,7 @@ namespace Dataing.API.Controllers
         }
         
         // GET api/values/5
-        [AllowAnonymous]
+        [Authorize(Roles = "Member")]
         [HttpGet("{id}")]
         public async Task<ActionResult<string>> GetValue(int id)
         {
