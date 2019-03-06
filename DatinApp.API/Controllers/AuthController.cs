@@ -60,6 +60,9 @@ namespace DatinApp.API.Controllers
         public async Task<IActionResult> Login([FromBody]UserForLoginDto userForLoginDto)
         {
             var user = await _userManager.FindByNameAsync(userForLoginDto.Username);
+            if (user == null)
+                return Unauthorized("Not found, please register");
+            
             var result = await _signInManager
                 .CheckPasswordSignInAsync(user, userForLoginDto.Password, false);
             
@@ -70,7 +73,7 @@ namespace DatinApp.API.Controllers
                 var userToReturn = _mapper.Map<UserForListDto>(appUser);
                 return Ok(new
                 {
-                    token = GenerateJwtToken(appUser),
+                    token = GenerateJwtToken(appUser).Result,
                     user = userToReturn
                 });
             }

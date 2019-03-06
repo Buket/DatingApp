@@ -1,0 +1,588 @@
+{
+	"info": {
+		"_postman_id": "5da69d5a-52e2-40e8-9d97-0ac7dac41a98",
+		"name": "DatingApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/api/auth/login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\":\"buck\",\n\t\"password\":\"password\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/values/",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxIiwidW5pcXVlX25hbWUiOiJidWxhdCIsIm5iZiI6MTU0ODUwMTQ1MSwiZXhwIjoxNTQ4NTg3ODUxLCJpYXQiOjE1NDg1MDE0NTF9.c-bvboxNw90aq9j5xNZzc2rkEIyc4M4qWVSKQW5Ih2DEJ9QGdV3LGNHQj1ucrEVaRef0Bwv4ea4mNEyyI6vk8Q",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/values/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"values",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/values/1",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxIiwidW5pcXVlX25hbWUiOiJidWxhdCIsIm5iZiI6MTU0ODUwMTQ1MSwiZXhwIjoxNTQ4NTg3ODUxLCJpYXQiOjE1NDg1MDE0NTF9.c-bvboxNw90aq9j5xNZzc2rkEIyc4M4qWVSKQW5Ih2DEJ9QGdV3LGNHQj1ucrEVaRef0Bwv4ea4mNEyyI6vk8Q",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/values/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"values",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/users/6",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI2IiwidW5pcXVlX25hbWUiOiJidWNrIiwibmJmIjoxNTQ5ODIxNzY0LCJleHAiOjE1NDk5MDgxNjQsImlhdCI6MTU0OTgyMTc2NH0.V5QDVDoyetelAD5JS2AJ7aZL3bvFAFYQh_Xk9aqcOkQg2FhtBZphesEorIavi2q-_p9gqjuLSiSTyAZuN_ENRw",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"introduction\": \"updated intro\",\n    \"lookingFor\": \"updated lookingfor\",\n    \"interests\": \"updated interest\",\n    \"city\": \"updated city\",\n    \"country\": \"updated country\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/users/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"users",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/users/6/photos",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI2IiwidW5pcXVlX25hbWUiOiJidWNrIiwibmJmIjoxNTUwMjY1MzgxLCJleHAiOjE1NTAzNTE3ODEsImlhdCI6MTU1MDI2NTM4MX0.AvdBkgoOhccjtnOsT84VuEBSWhf1ei9rUt80hE6rAyo0XxpIzputQvvl4nTSnlX_OeMKMFXgcJ2WI3mNWiJTgA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "File",
+							"type": "file",
+							"src": ""
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/users/6/photos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"users",
+						"6",
+						"photos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/users/6/photos/11/setMain",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI2IiwidW5pcXVlX25hbWUiOiJidWNrIiwibmJmIjoxNTUwMzE4OTI5LCJleHAiOjE1NTA0MDUzMjksImlhdCI6MTU1MDMxODkyOX0.reyjbX1GNceEjGy0CgVAwqMtvdIlMYWtMOlBfd5-vH-xvwqu0SbvwlhdSr6AhOGzAibgPz3F60zVGjDfPO5Uyw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/users/6/photos/11/setMain",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"users",
+						"6",
+						"photos",
+						"11",
+						"setMain"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/users/6/photos/11/delete",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI2IiwidW5pcXVlX25hbWUiOiJidWNrIiwibmJmIjoxNTUwMzE4OTI5LCJleHAiOjE1NTA0MDUzMjksImlhdCI6MTU1MDMxODkyOX0.reyjbX1GNceEjGy0CgVAwqMtvdIlMYWtMOlBfd5-vH-xvwqu0SbvwlhdSr6AhOGzAibgPz3F60zVGjDfPO5Uyw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/users/6/photos/11/setMain",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"users",
+						"6",
+						"photos",
+						"11",
+						"setMain"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/users/6",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI0IiwidW5pcXVlX25hbWUiOiJmbG9zc2llIiwibmJmIjoxNTUwNTk5NjAyLCJleHAiOjE1NTA2ODYwMDIsImlhdCI6MTU1MDU5OTYwMn0.L4vnCFIWLVFZRlkpy7tr7fPL32fZ5qeiUj1Ja6S_f1dFRQ1ePQiKS9Y6WszhI977lpo6TgFnquz6jAgB7kcydg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/users/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"users",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/auth/register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI2IiwidW5pcXVlX25hbWUiOiJidWNrIiwibmJmIjoxNTUwMzg4NjE5LCJleHAiOjE1NTA0NzUwMTksImlhdCI6MTU1MDM4ODYxOX0.-QXnWnP8_IhrEGf0vmroI5dXEZyqRwc8VorEpIuZDFA_zKCK0uTeRrAfCpmy52wFM_mC4WjoEUCNViPr38Pkow",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"gender\":\"male\",\n\t\"username\":\"buk\",\n\t\"knownAs\":\"buki\",\n\t\"dateOfBirth\":\"10/21/1995\",\n\t\"city\":\"London\",\n\t\"country\":\"UK\",\n\t\"password\":\"1234\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/users?pageNumber=1&pageSize=3",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI2IiwidW5pcXVlX25hbWUiOiJidWNrIiwibmJmIjoxNTUwNTE4MDk4LCJleHAiOjE1NTA2MDQ0OTgsImlhdCI6MTU1MDUxODA5OH0.ghTPOw-HbqbeOCUKb6mZbcHRWAL21gYV-L0Oa23NUUhY9S17NtVnKfNSXh2uynYzzRdlrKKmvUeS4R6z0DoWYw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/users?pageNumber=1&pageSize=3&orderBy=created&likees=true",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "pageNumber",
+							"value": "1"
+						},
+						{
+							"key": "pageSize",
+							"value": "3"
+						},
+						{
+							"key": "minAge",
+							"value": "25",
+							"disabled": true
+						},
+						{
+							"key": "maxAge",
+							"value": "44",
+							"disabled": true
+						},
+						{
+							"key": "orderBy",
+							"value": "created"
+						},
+						{
+							"key": "likees",
+							"value": "true"
+						},
+						{
+							"key": "likers",
+							"value": "true",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/users/6/Like/99",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI0IiwidW5pcXVlX25hbWUiOiJmbG9zc2llIiwibmJmIjoxNTUwNTk5NjAyLCJleHAiOjE1NTA2ODYwMDIsImlhdCI6MTU1MDU5OTYwMn0.L4vnCFIWLVFZRlkpy7tr7fPL32fZ5qeiUj1Ja6S_f1dFRQ1ePQiKS9Y6WszhI977lpo6TgFnquz6jAgB7kcydg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/users/4/Like/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"users",
+						"4",
+						"Like",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/users/6/messages",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI2IiwidW5pcXVlX25hbWUiOiJidWNrIiwibmJmIjoxNTUwNjA1ODkxLCJleHAiOjE1NTA2OTIyOTEsImlhdCI6MTU1MDYwNTg5MX0.VmPQQztBVngt_q0JwEREl8mXEkV9MNkQJh8c6ZqbME4-ssdsrs84PIg85hHN4qD0Tu2Ix251mDcTxfbaTXfuhg",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"recipientId\": \"4\",\n\t\"content\": \"Test message2 from Buck to 4\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/users/6/messages",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"users",
+						"6",
+						"messages"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/users/4/messages",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI0IiwidW5pcXVlX25hbWUiOiJmbG9zc2llIiwibmJmIjoxNTUwNjA4MDA0LCJleHAiOjE1NTA2OTQ0MDQsImlhdCI6MTU1MDYwODAwNH0.G-M_08U02-vSmufl3mQpgJrzoyYg9zIJCi_zbtW11uCYfoX5yKoE30DhSCo3lKvY8JbdbrfgiGK1pHlw9qXXKg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/users/4/messages?",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"users",
+						"4",
+						"messages"
+					],
+					"query": [
+						{
+							"key": "messageContainer",
+							"value": "Inbox",
+							"disabled": true
+						},
+						{
+							"key": "messageContainer",
+							"value": "Outbox",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/values/1",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxIiwidW5pcXVlX25hbWUiOiJidWxhdCIsIm5iZiI6MTU0ODUwMTQ1MSwiZXhwIjoxNTQ4NTg3ODUxLCJpYXQiOjE1NDg1MDE0NTF9.c-bvboxNw90aq9j5xNZzc2rkEIyc4M4qWVSKQW5Ih2DEJ9QGdV3LGNHQj1ucrEVaRef0Bwv4ea4mNEyyI6vk8Q",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/values/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"values",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/admin/usersWithRoles",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxMSIsInVuaXF1ZV9uYW1lIjoiQWRtaW4iLCJyb2xlIjpbIkFkbWluIiwiTW9kZXJhdG9yIl0sIm5iZiI6MTU1MTg5NDA3OSwiZXhwIjoxNTUxOTgwNDc5LCJpYXQiOjE1NTE4OTQwNzl9.4aQf0WJWzQVBgm5EjSwxwVVzUFvMcfWQ-wnpLf7go4UHfKl8DxV2wZk5r6z2N9ZQXk03SbugdUWW2GcNmsw2Mw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/admin/usersWithRoles",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"admin",
+						"usersWithRoles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/admin/photosForModeration",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxMSIsInVuaXF1ZV9uYW1lIjoiQWRtaW4iLCJyb2xlIjpbIkFkbWluIiwiTW9kZXJhdG9yIl0sIm5iZiI6MTU1MTg5NDA3OSwiZXhwIjoxNTUxOTgwNDc5LCJpYXQiOjE1NTE4OTQwNzl9.4aQf0WJWzQVBgm5EjSwxwVVzUFvMcfWQ-wnpLf7go4UHfKl8DxV2wZk5r6z2N9ZQXk03SbugdUWW2GcNmsw2Mw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/admin/photosForModeration",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"admin",
+						"photosForModeration"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
