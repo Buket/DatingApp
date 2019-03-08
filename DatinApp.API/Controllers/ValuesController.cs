@@ -26,7 +26,7 @@ namespace Dataing.API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetValues()
         {
-            var values = await _context.ValuesSet.ToListAsync();
+            var values = await _context.Values.ToListAsync();
             return Ok(values);
         }
         
@@ -35,7 +35,7 @@ namespace Dataing.API.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<string>> GetValue(int id)
         {
-            var value = await _context.ValuesSet.FirstOrDefaultAsync(o => o.Id == id);
+            var value = await _context.Values.FirstOrDefaultAsync(o => o.Id == id);
             return Ok(value);
         }
     }

@@ -68,6 +68,8 @@ namespace Dataing.API.Migrations
 
                     b.Property<string>("Description");
 
+                    b.Property<bool>("IsApproved");
+
                     b.Property<bool>("IsMain");
 
                     b.Property<string>("PublicId");
@@ -198,7 +200,7 @@ namespace Dataing.API.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ValuesSet");
+                    b.ToTable("Values");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>

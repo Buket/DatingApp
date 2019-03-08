@@ -11,7 +11,7 @@ namespace DatinApp.API.Data
     {
         public DataContext(DbContextOptions<DataContext> options) : base(options) {}
 
-        public DbSet<Value> ValuesSet { get; set; }
+        public DbSet<Value> Values { get; set; }
         public DbSet<Photo> Photos { get; set; }
         public DbSet<Like> Likes { get; set; }
         public DbSet<Message> Messages { get; set; }
@@ -19,6 +19,7 @@ namespace DatinApp.API.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+            builder.Entity<Photo>().HasQueryFilter(p => p.IsApproved == true);
 
             builder.Entity<UserRole>(userRole =>
             {

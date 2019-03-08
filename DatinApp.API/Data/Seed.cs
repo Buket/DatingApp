@@ -39,6 +39,9 @@ namespace DatinApp.API.Data
 
                 foreach (var user in users)
                 {
+                    var photo = user.Photos.FirstOrDefault();
+                    photo.IsApproved = true;
+                    
                     _userManager.CreateAsync(user, "password").Wait();
                     _userManager.AddToRoleAsync(user, "Member").Wait();
                 }

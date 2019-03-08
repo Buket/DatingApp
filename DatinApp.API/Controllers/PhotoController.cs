@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -75,6 +76,7 @@ namespace DatinApp.API.Controllers
 
             photoForCreationDto.Url = uploadResult.Uri.ToString();
             photoForCreationDto.PublicId = uploadResult.PublicId;
+            photoForCreationDto.DateAdded = DateTime.UtcNow;
 
             var photo = _mapper.Map<Photo>(photoForCreationDto);
 

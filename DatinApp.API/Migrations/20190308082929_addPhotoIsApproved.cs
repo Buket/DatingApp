@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Dataing.API.Migrations
 {
-    public partial class IdentityInitial : Migration
+    public partial class addPhotoIsApproved : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -59,7 +59,7 @@ namespace Dataing.API.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ValuesSet",
+                name: "Values",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -68,7 +68,7 @@ namespace Dataing.API.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ValuesSet", x => x.Id);
+                    table.PrimaryKey("PK_Values", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -244,7 +244,8 @@ namespace Dataing.API.Migrations
                     DateAdded = table.Column<DateTime>(nullable: false),
                     IsMain = table.Column<bool>(nullable: false),
                     PublicId = table.Column<string>(nullable: true),
-                    UserId = table.Column<int>(nullable: false)
+                    UserId = table.Column<int>(nullable: false),
+                    IsApproved = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -342,7 +343,7 @@ namespace Dataing.API.Migrations
                 name: "Photos");
 
             migrationBuilder.DropTable(
-                name: "ValuesSet");
+                name: "Values");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Dataing.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20190305171948_IdentityInitial")]
-    partial class IdentityInitial
+    [Migration("20190308082929_addPhotoIsApproved")]
+    partial class addPhotoIsApproved
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -69,6 +69,8 @@ namespace Dataing.API.Migrations
                     b.Property<DateTime>("DateAdded");
 
                     b.Property<string>("Description");
+
+                    b.Property<bool>("IsApproved");
 
                     b.Property<bool>("IsMain");
 
@@ -200,7 +202,7 @@ namespace Dataing.API.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ValuesSet");
+                    b.ToTable("Values");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
