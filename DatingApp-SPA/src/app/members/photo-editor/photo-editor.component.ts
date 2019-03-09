@@ -51,10 +51,11 @@ export class PhotoEditorComponent implements OnInit {
         const photo = {
           id: res.id,
           url: res.url,
-          dateAdding: res.dateAdding,
+          dateAdded: res.dateAdded,
           description: res.description,
           isMain: res.isMain,
-          isApproved: res.isApproved
+          isApproved: res.isApproved,
+          userName: res.userName
         };
         this.photos.push(photo);
         if (photo.isMain) {
@@ -67,7 +68,7 @@ export class PhotoEditorComponent implements OnInit {
   }
 
   setMainPhoto(photo: Photo) {
-    this.userService.setMainPhoto(this.authService.decodedToken.nameid, photo.id).subscribe(() =>{
+    this.userService.setMainPhoto(this.authService.decodedToken.nameid, photo.id).subscribe(() => {
       this.currentMainPhoto = this.photos.filter(p => p.isMain === true)[0];
       this.currentMainPhoto.isMain = false;
       photo.isMain = true;

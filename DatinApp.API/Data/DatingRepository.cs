@@ -37,17 +37,41 @@ namespace DatinApp.API.Data
                 .FirstOrDefaultAsync(p => p.IsMain);
         }
 
-        public async Task<Photo> GetPhoto(int id)
+        public async Task<PagedList<Photo>> GetPhotoForApprove(PaggingParam param)
         {
-            var photo = await _context.Photos.FirstOrDefaultAsync(p => p.Id == id);
+            var photos = _context.Photos
+                .IgnoreQueryFilters()
+                .Include(o => o.User)
+                .Where(p => p.IsApproved == false);            
+
+            return await PagedList<Photo>.CreateAsync(photos, param.PageNumber, param.PageSize);
+        }
+
+        public async Task<Photo> GetPhoto(int id, bool withApproved)
+        {
+            Photo photo;
+            if (withApproved)
+                photo = await _context.Photos.IgnoreQueryFilters()
+                    .FirstOrDefaultAsync(p => p.Id == id);
+            else
+                photo = await _context.Photos.FirstOrDefaultAsync(p => p.Id == id);
+            
             return photo;
         }
 
-        public async Task<User> GetUser(int id)
+        public async Task<User> GetUser(int id, bool withApproved)
         {
-            var user = await _context.Users.Include(p => p.Photos)
-                .IgnoreQueryFilters()
+            User user;
+            if (withApproved)
+            {
+                user = await _context.Users.IgnoreQueryFilters()
+                .Include(p => p.Photos)
                 .FirstOrDefaultAsync(u => u.Id == id);
+            }else{
+                user = await _context.Users
+                .Include(p => p.Photos)
+                .FirstOrDefaultAsync(u => u.Id == id);
+            }
             return user;
         }
 

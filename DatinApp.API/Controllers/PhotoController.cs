@@ -43,7 +43,7 @@ namespace DatinApp.API.Controllers
         [HttpGet("{id}", Name = "GetPhoto")]
         public async Task<IActionResult> GetPhoto(int id)
         {
-            var photoFromRepo = await _repository.GetPhoto(id);
+            var photoFromRepo = await _repository.GetPhoto(id, false);
 
             var photo = _mapper.Map<PhotoForReturnDto>(photoFromRepo);
             return Ok(photo);
@@ -56,7 +56,7 @@ namespace DatinApp.API.Controllers
             if (userId != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value))
                 return Unauthorized();
             
-            var userFromRepo = await _repository.GetUser(userId);
+            var userFromRepo = await _repository.GetUser(userId, true);
             var file = photoForCreationDto.File;
             var uploadResult = new ImageUploadResult();
 
@@ -101,12 +101,12 @@ namespace DatinApp.API.Controllers
             if (userId != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value))
                 return Unauthorized();
 
-            var user = await _repository.GetUser(userId);
+            var user = await _repository.GetUser(userId, false);
 
             if (!user.Photos.Any(p => p.Id == id))
                 return Unauthorized();
             
-            var photoFromRepo = await _repository.GetPhoto(id);
+            var photoFromRepo = await _repository.GetPhoto(id, false);
 
             if (photoFromRepo.IsMain)
                 return BadRequest("This is already the main photo");
@@ -127,12 +127,12 @@ namespace DatinApp.API.Controllers
             if (userId != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value))
                 return Unauthorized();
 
-            var user = await _repository.GetUser(userId);
+            var user = await _repository.GetUser(userId, true);
 
             if (!user.Photos.Any(p => p.Id == id))
                 return Unauthorized();
             
-            var photoFromRepo = await _repository.GetPhoto(id);
+            var photoFromRepo = await _repository.GetPhoto(id, true);
 
             if (photoFromRepo.IsMain)
                 return BadRequest("You cannot delete the main photo");

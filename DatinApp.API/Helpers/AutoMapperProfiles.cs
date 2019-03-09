@@ -25,7 +25,9 @@ namespace DatinApp.API.Helpers
                 });
             CreateMap<Photo, PhotoForDetailedDto>();
             CreateMap<UserForUpdateDto, User>();
-            CreateMap<Photo, PhotoForReturnDto>();
+            CreateMap<Photo, PhotoForReturnDto>()
+                .ForMember(d => d.UserName, op => op
+                    .MapFrom(s => s.User.UserName));
             CreateMap<PhotoForCreationDto, Photo>();
             CreateMap<UserForRegisterDto, User>();
             CreateMap<MessageForCreationDto, Message>().ReverseMap();
